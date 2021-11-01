@@ -58,6 +58,10 @@ job [[ template "job_name" . ]] {
         [[- end ]]
       }
 
+      vault {
+        policies = [[region]]-[[job_name]]
+      }
+      
       resources {
         cpu    = [[ .common_app.resources.cpu ]]
         memory = [[ .common_app.resources.memory ]]
