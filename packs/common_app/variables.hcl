@@ -13,7 +13,6 @@ variable "region" {
 variable "datacenters" {
   description = "A list of datacenters in the region which are eligible for task placement"
   type        = list(string)
-  default     = ["dc1"]
 }
 
 variable "image" {
@@ -75,6 +74,12 @@ variable "ports" {
 variable "env_vars" {
   description = ""
   type = map(string)
+}
+
+variable "env_file" {
+  description = ""
+  type = string
+  default = ""
 }
 
 variable "consul_service_name" {
