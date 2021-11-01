@@ -75,8 +75,7 @@ variable "ports" {
 
 variable "env_vars" {
   description = ""
-  type = map
-  default = {}
+  type = map(string)
 }
 
 variable "consul_service_name" {
