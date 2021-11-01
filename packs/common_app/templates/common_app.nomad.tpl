@@ -52,12 +52,22 @@ job [[ template "job_name" . ]] {
         ports = ["http"]
       }
 
+      [[ if .common_app.env_vars ]]
       env {
         [[- range $key, $value := .common_app.env_vars ]]
         [[ $key ]] = [[ $value ]]
         [[- end ]]
       }
+      [[- end ]]
 
+      [[ if .common_app.env_file ]]
+      template {
+        destination = "secrets/[[ .common_app.env_file ]]"
+        env = false
+        source = file([[ .common_app.env_file ]])
+      }
+      [[- end ]]
+      
       vault {
         [[ template "vault_policy" . ]]
       }
