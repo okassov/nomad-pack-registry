@@ -8,7 +8,6 @@ variable "job_name" {
 variable "region" {
   description = "The region where jobs will be deployed"
   type        = string
-  default     = ""
 }
 
 variable "datacenters" {
