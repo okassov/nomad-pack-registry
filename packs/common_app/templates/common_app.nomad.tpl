@@ -59,7 +59,7 @@ job [[ template "job_name" . ]] {
       }
 
       vault {
-        policies = [[.common_app.region]]-[[ template "job_name" . ]]
+        [[ template "vault_policy" . ]]
       }
       
       resources {
