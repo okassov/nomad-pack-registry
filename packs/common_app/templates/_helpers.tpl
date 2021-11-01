@@ -15,3 +15,7 @@
 region = [[ .common_app.region | quote]]
 [[- end -]]
 [[- end -]]
+
+[[- define "vault_policy" -]]
+[[- (printf "%s-%s" .common_app.region .common_app.job_name) -]]
+[[- end -]]
