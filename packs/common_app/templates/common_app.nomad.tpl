@@ -52,14 +52,11 @@ job [[ template "job_name" . ]] {
         ports = ["http"]
       }
 
-      [[- $env_vars_length := len .common_app.env_vars ]]
-      [[- if not (eq $env_vars_length 0) ]]
       env {
-        [[- range $var := .common_app.env_vars ]]
-        [[ $var.key ]] = [[ $var.value ]]
+        [[- range $key, $value := .common_app.env_vars ]]
+        [[ $key ]] = [[ $value ]]
         [[- end ]]
       }
-      [[- end ]]
 
       resources {
         cpu    = [[ .common_app.resources.cpu ]]
