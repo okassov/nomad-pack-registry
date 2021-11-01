@@ -75,11 +75,8 @@ variable "ports" {
 
 variable "env_vars" {
   description = ""
-  type = list(object({
-    key   = string
-    value = string
-  }))
-  default = []
+  type = map
+  default = {}
 }
 
 variable "consul_service_name" {
